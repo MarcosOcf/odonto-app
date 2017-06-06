@@ -12,6 +12,11 @@ import InfoSelector from '../widgets/InfoSelector'
 import { RadioButtons } from 'react-native-radio-buttons'
 
 class Anatomy extends React.Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: `${navigation.state.params.pageName}`,
+    tabBarLabel: 'Anatomia',
+  })
+
   state = {
     selectedOption: null,
   }
@@ -43,7 +48,7 @@ class Anatomy extends React.Component {
     return (
       <View>
         <RadioButtons
-          options={params.buttons.map((button) => button)}
+          options={params.anatomy.params.buttons.map((button) => button)}
           onSelection={this.setSelectedOption}
           selectedOption={this.state.selectedOption}
           renderOption={this.renderOption}

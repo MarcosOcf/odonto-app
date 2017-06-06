@@ -3,23 +3,20 @@ import { Text } from 'react-native'
 import { StackNavigator, TabNavigator } from 'react-navigation'
 
 import Home from './scenes/Home'
-import Tooth from './scenes/Tooth'
 import Anatomy from './scenes/Anatomy'
+import InternalAnatomy from './scenes/InternalAnatomy'
 
 const TabAnatomy = TabNavigator({
   Anatomy: { screen: Anatomy },
-  InternalAnatomy: { screen: Anatomy },
+  InternalAnatomy: { screen: InternalAnatomy },
 });
 
 const ModalStack = StackNavigator({
   Home: {
     screen: Home,
   },
-  Tooth: {
-    screen: Tooth
-  },
-  Anatomy: {
-    screen: Anatomy
+  AnatomySelector: {
+    screen: TabAnatomy
   }
 });
 
