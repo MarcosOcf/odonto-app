@@ -3,62 +3,68 @@ import {
   StyleSheet,
   Text,
   View,
+  ScrollView,
   Button,
   Picker
 } from 'react-native';
 
 import get from 'lodash/get'
 
-import { RadioButtons } from 'react-native-radio-buttons'
+import { SegmentedControls } from 'react-native-radio-buttons'
 
 class PickerComponent extends React.Component {
   state = {
     picker: null,
   }
 
+  renderOption = (option, selected, onSelect, index) => {
+    return (
+      <Text style={[styles.radioText, selected && styles.radioTextSelected]} onPress={onSelect} >
+        {option.name}
+      </Text>
+    );
+  }
+
+  setSelectedOption = (option) => {
+    this.setState({ selectedPicker: option })
+  }
+
   componentDidMount() {
     this.setState({
-      selectedPicker: get(this.props.params, '[0].value')
+      selectedPicker: get(this.props.params, '[0]')
     })
   }
 
   render() {
     return (
       <View>
-        <Picker
-          selectedValue={this.state.selectedPicker}
-          onValueChange={(value) => this.setState({ selectedPicker: value })}>
-          {
-            this.props.params.map((item, key) => (
-              <Picker.Item label={item.name} value={item.value} key={key} />
-            ))
-          }
-        </Picker>
+        <ScrollView horizontal style={{paddingBottom: 20, margin: 10}}>
+          <SegmentedControls
+            options={this.props.params}
+            onSelection={this.setSelectedOption}
+            selectedOption={this.state.selectedPicker}
+            renderOption={this.renderOption}
+          />
+        </ScrollView>
         {
-          this.state.selectedPicker && <Text>{this.state.selectedPicker} </Text>
+           this.state.selectedPicker && <Text>{this.state.selectedPicker.value} </Text>
         }
       </View>
     );
   }
 }
 
-
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
+  radioText: {
+    width: 100,
     textAlign: 'center',
-    margin: 10,
+    color: '#007AFF',
+    backgroundColor: '#ffffff'
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  radioTextSelected: {
+    fontWeight: 'bold',
+    color: '#ffffff',
+    backgroundColor: '#007AFF'
   },
 });
 

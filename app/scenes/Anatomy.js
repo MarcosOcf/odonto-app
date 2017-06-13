@@ -45,7 +45,7 @@ class Anatomy extends React.Component {
       <View>
         <View style={styles.radioControlsWrapper}>
           <SegmentedControls
-            options={params.anatomy.params.buttons.map((button) => button)}
+            options={params.anatomy.params.buttons}
             onSelection={this.setSelectedOption}
             selectedOption={this.state.selectedOption}
             renderOption={this.renderOption}
