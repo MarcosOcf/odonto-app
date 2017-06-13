@@ -9,7 +9,7 @@ import {
 
 import InfoSelector from '../widgets/InfoSelector'
 
-import { RadioButtons } from 'react-native-radio-buttons'
+import { SegmentedControls } from 'react-native-radio-buttons'
 
 class Anatomy extends React.Component {
   static navigationOptions = ({ navigation }) => ({
@@ -26,15 +26,11 @@ class Anatomy extends React.Component {
     navigate(route, params)
   }
 
-  renderOption = (option, selected, onSelect, index) => {
-    const style = selected ? { fontWeight: 'bold' } : {};
-
+  renderOption = (option, selected, onSelect, index) => {  
     return (
-      <TouchableWithoutFeedback onPress={onSelect} key={index}>
-        <View>
-          <Text style={style}>{option.name}</Text>
-        </View>
-      </TouchableWithoutFeedback>
+      <Text style={[styles.radioText, selected && styles.radioTextSelected]} onPress={onSelect} >
+        {option.name}
+      </Text>
     );
   }
 
@@ -47,13 +43,14 @@ class Anatomy extends React.Component {
 
     return (
       <View>
-        <RadioButtons
-          options={params.anatomy.params.buttons.map((button) => button)}
-          onSelection={this.setSelectedOption}
-          selectedOption={this.state.selectedOption}
-          renderOption={this.renderOption}
-          renderContainer={RadioButtons.renderHorizontalContainer}
-        />
+        <View style={styles.radioControlsWrapper}>
+          <SegmentedControls
+            options={params.anatomy.params.buttons.map((button) => button)}
+            onSelection={this.setSelectedOption}
+            selectedOption={this.state.selectedOption}
+            renderOption={this.renderOption}
+          />
+        </View>
         {
           this.state.selectedOption && <InfoSelector params={this.state.selectedOption.picker} />
         }
@@ -64,22 +61,19 @@ class Anatomy extends React.Component {
  
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
+  radioText: {
     textAlign: 'center',
-    margin: 10,
+    color: '#007AFF',
+    backgroundColor: '#ffffff'
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  radioTextSelected: {
+    fontWeight: 'bold',
+    color: '#ffffff',
+    backgroundColor: '#007AFF'
   },
+  radioControlsWrapper: {
+    margin: 20
+  }
 });
 
 export default Anatomy

@@ -47,7 +47,7 @@ export default {
           ]
         },
         {
-          name: 'desenvolvimento dentário',
+          name: 'desenvol',
           picker: [
           ]
         }
