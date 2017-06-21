@@ -38,7 +38,12 @@ import segundoMolarEsquerdoInferior from './dentes-inferiores/segundo-molar-esqu
 import terceiroMolarEsquerdoInferior from './dentes-inferiores/terceiro-molar-esquerdo'
 
 export default class Dentes extends Component {
-  render() {
+
+  render() {    
+    const { 
+      primeiroMolarInferior
+    } = this.props.teethData
+
     return (
       <Svg xmlns="http://www.w3.org/2000/svg"
         width="380"
@@ -50,42 +55,42 @@ export default class Dentes extends Component {
           stroke-linecap="round"
           stroke-linejoin="round">
 
-          {incisivoFrontalDireito()}
-          {incisivoLateralDireito()}
-          {caninoDireito()}
-          {primeiroPreMolarDireito()}
-          {segundoPreMolarDireito()}
-          {primeiroMolarDireito()}
-          {segundoMolarDireito()}
-          {terceiroMolarDireito()}
+          { incisivoFrontalDireito() }
+          { incisivoLateralDireito() }
+          { caninoDireito() }
+          { primeiroPreMolarDireito() }
+          { segundoPreMolarDireito() }
+          { primeiroMolarDireito(primeiroMolarInferior) }
+          { segundoMolarDireito() }
+          { terceiroMolarDireito() }
 
-          {incisivoFrontalEsquerdo()}
-          {incisivoLateralEsquerdo()}
-          {caninoEsquerdo()}
-          {primeiroPreMolarEsquerdo()}
-          {segundoPreMolarEsquerdo()}
-          {primeiroMolarEsquerdo()}
-          {segundoMolarEsquerdo()}
-          {terceiroMolarEsquerdo()}
+          { incisivoFrontalEsquerdo() }
+          { incisivoLateralEsquerdo() }
+          { caninoEsquerdo() }
+          { primeiroPreMolarEsquerdo() }
+          { segundoPreMolarEsquerdo() }
+          { primeiroMolarEsquerdo() }
+          { segundoMolarEsquerdo() }
+          { terceiroMolarEsquerdo() }
 
-          {incisivoFrontalDireitoInferior()}
-          {incisivoLateralDireitoInferior()}
-          {caninoDireitoInferior()}
-          {primeiroPreMolarDireitoInferior()}
-          {segundoPreMolarDireitoInferior()}
-          {primeiroMolarDireitoInferior()}
-          {segundoMolarDireitoInferior()}
-          {terceiroMolarDireitoInferior()}
+          { incisivoFrontalDireitoInferior() }
+          { incisivoLateralDireitoInferior() }
+          { caninoDireitoInferior() }
+          { primeiroPreMolarDireitoInferior() }
+          { segundoPreMolarDireitoInferior() }
+          { primeiroMolarDireitoInferior() }
+          { segundoMolarDireitoInferior() }
+          { terceiroMolarDireitoInferior() }
 
 
-          {incisivoFrontalEsquerdoInferior()}
-          {incisivoLateralEsquerdoInferior()}
-          {caninoEsquerdoInferior()}
-          {primeiroPreMolarEsquerdoInferior()}
-          {segundoPreMolarEsquerdoInferior()}
-          {primeiroMolarEsquerdoInferior()}
-          {segundoMolarEsquerdoInferior()}
-          {terceiroMolarEsquerdoInferior()}
+          { incisivoFrontalEsquerdoInferior() }
+          { incisivoLateralEsquerdoInferior() }
+          { caninoEsquerdoInferior() }
+          { primeiroPreMolarEsquerdoInferior() }
+          { segundoPreMolarEsquerdoInferior() }
+          { primeiroMolarEsquerdoInferior() }
+          { segundoMolarEsquerdoInferior() }
+          { terceiroMolarEsquerdoInferior() }
           </G>
       </Svg>
     )
