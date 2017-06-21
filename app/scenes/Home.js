@@ -22,7 +22,9 @@ class Home extends React.Component {
 
   propsFor = (tooth) => {
     return {
-      onPress: () => this.onToothPress(tooth.route, tooth.params)
+      onPress: () => this.onToothPress(tooth.route, tooth.params),
+      defaultColor: '#FFF',
+      onPressColor: '#F8BBD0'
     }
   }
 
@@ -38,9 +40,9 @@ class Home extends React.Component {
 
   render() {
     return (
-      <ScrollView>
+      <View style={styles.container}>
         <Dentes teethData={this.teethData()} />
-      </ScrollView>
+      </View>
     );
   }
 }
@@ -49,19 +51,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+    alignContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    backgroundColor: '#BBDEFB',
+  }
 });
 
 export default Home

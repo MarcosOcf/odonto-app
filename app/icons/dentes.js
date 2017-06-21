@@ -6,7 +6,7 @@ import incisivoLateralDireito from './dentes-superiores/incisivo-lateral-direito
 import caninoDireito from './dentes-superiores/canino-direito'
 import primeiroPreMolarDireito from './dentes-superiores/primeiro-pre-molar-direito'
 import segundoPreMolarDireito from './dentes-superiores/segundo-pre-molar-direito'
-import primeiroMolarDireito from './dentes-superiores/primeiro-molar-direito'
+import PrimeiroMolarDireito from './dentes-superiores/primeiro-molar-direito'
 import segundoMolarDireito from './dentes-superiores/segundo-molar-direito'
 import terceiroMolarDireito from './dentes-superiores/terceiro-molar-direito'
 
@@ -46,8 +46,8 @@ export default class Dentes extends Component {
 
     return (
       <Svg xmlns="http://www.w3.org/2000/svg"
-        width="380"
-        height="580"
+        width="300"
+        height="500"
         viewBox="0 0 3026.986 4735.713">
         <G
           stroke="#707070"
@@ -60,7 +60,7 @@ export default class Dentes extends Component {
           { caninoDireito() }
           { primeiroPreMolarDireito() }
           { segundoPreMolarDireito() }
-          { primeiroMolarDireito(primeiroMolarInferior) }
+          <PrimeiroMolarDireito {...primeiroMolarInferior} />
           { segundoMolarDireito() }
           { terceiroMolarDireito() }
 
