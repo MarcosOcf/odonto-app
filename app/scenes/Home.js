@@ -9,6 +9,8 @@ import {
 
 import AppData from '../data/Data'
 
+import Dentes from '../icons/dentes'
+
 class Home extends React.Component {
   static navigationOptions = {
     title: 'Seleção de Dentes',
@@ -18,19 +20,18 @@ class Home extends React.Component {
     const { navigate } = this.props.navigation;
     navigate(route, params)
   }
+          // AppData.teeth.map((tooth, index) => (
+          //   <Button
+          //     key={index}
+          //     title={tooth.name}
+          //     onPress={() => this.onToothPress(tooth.route, tooth.params)}
+          //   />  
+          // ))
 
   render() {
     return (
-      <ScrollView>
-        { 
-          AppData.teeth.map((tooth, index) => (
-            <Button
-              key={index}
-              title={tooth.name}
-              onPress={() => this.onToothPress(tooth.route, tooth.params)}
-            />  
-          ))
-        }
+      <ScrollView horizontal>
+        <Dentes />
       </ScrollView>
     );
   }
