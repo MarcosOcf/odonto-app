@@ -2,12 +2,12 @@ import React from 'react'
 import { Text } from 'react-native'
 import { StackNavigator, TabNavigator } from 'react-navigation'
 
-import Home from './scenes/Home'
-import Anatomy from './scenes/Anatomy'
-import InternalAnatomy from './scenes/InternalAnatomy'
+import Home from './scenes/home'
+import ExternalAnatomy from './scenes/external-anatomy'
+import InternalAnatomy from './scenes/internal-anatomy'
 
 const TabAnatomy = TabNavigator({
-  Anatomy: { screen: Anatomy },
+  ExternalAnatomy: { screen: ExternalAnatomy },
   InternalAnatomy: { screen: InternalAnatomy },
 });
 
