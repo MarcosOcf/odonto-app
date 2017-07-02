@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import { G, Path } from 'react-native-svg';
-import { StyleSheet } from 'react-native'
 
 import WithToothClick from '../with-tooth-click'
 
-const PrimeiroMolarDireito = (props) => {
-  console.log(props)
-  return <G 
+const PrimeiroMolarDireito = (props) => (
+  <G 
     onPress={props.onPress}
     onPressIn={props.onPressIn}
     onPressOut={props.onPressOut}>
@@ -20,6 +18,6 @@ const PrimeiroMolarDireito = (props) => {
       fill="#F5F5F5"
       d="M2693.304 1342.325c-12.074 13.087-21.09 28.2-54.859 26.904-19.254-2.464-38.508-3.707-57.723 8.603m-100.063-23.683c36.9 6.345 91.441 3.81 101.471 23.679m90.457 120.891c-37.576 17.006-53.496-.845-73.273-12.484" />
   </G>
-}
+)  
 
 export default WithToothClick(PrimeiroMolarDireito)

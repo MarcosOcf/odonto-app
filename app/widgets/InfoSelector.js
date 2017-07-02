@@ -5,7 +5,8 @@ import {
   View,
   ScrollView,
   Button,
-  Picker
+  Picker,
+  Image
 } from 'react-native';
 
 import get from 'lodash/get'
@@ -16,6 +17,28 @@ class PickerComponent extends React.Component {
   state = {
     picker: null,
   }
+
+  renderText = (text) => (
+    text && <Text> {text} </Text>
+  )
+
+  renderImage = (image) => (
+    image && (
+      <Image
+        style={{ width: 120, height: 300 }}
+        source={image}
+      />
+    )
+  )
+
+  renderTable = (table) => (
+    table && (
+      <Image
+        style={{ width: 120, height: 300 }}
+        source={image}
+      />
+    )
+  )
 
   renderOption = (option, selected, onSelect, index) => {
     return (
@@ -36,25 +59,39 @@ class PickerComponent extends React.Component {
   }
 
   render() {
+    const { selectedPicker } = this.state
+
     return (
-      <View>
+      <ScrollView>
         <ScrollView horizontal style={{paddingBottom: 20, margin: 10}}>
           <SegmentedControls
             options={this.props.params}
             onSelection={this.setSelectedOption}
-            selectedOption={this.state.selectedPicker}
+            selectedOption={selectedPicker}
             renderOption={this.renderOption}
           />
         </ScrollView>
         {
-           this.state.selectedPicker && <Text>{this.state.selectedPicker.value} </Text>
+           selectedPicker && (
+            <ScrollView>
+              <View style={styles.pickerInfos}>
+                {this.renderText(selectedPicker.value)}
+                {this.renderImage(selectedPicker.imageSource)}
+                {this.renderTable(selectedPicker.table)}
+              </View>
+            </ScrollView>
+          )         
         }
-      </View>
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  pickerInfos: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   radioText: {
     width: 100,
     textAlign: 'center',

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Svg, { G } from 'react-native-svg';
 
-import incisivoFrontalDireito from './dentes-superiores/incisivo-frontal-direito'
+import IncisivoFrontalDireito from './dentes-superiores/incisivo-frontal-direito'
 import incisivoLateralDireito from './dentes-superiores/incisivo-lateral-direito'
 import caninoDireito from './dentes-superiores/canino-direito'
 import primeiroPreMolarDireito from './dentes-superiores/primeiro-pre-molar-direito'
@@ -10,7 +10,7 @@ import PrimeiroMolarDireito from './dentes-superiores/primeiro-molar-direito'
 import segundoMolarDireito from './dentes-superiores/segundo-molar-direito'
 import terceiroMolarDireito from './dentes-superiores/terceiro-molar-direito'
 
-import incisivoFrontalEsquerdo from './dentes-superiores/incisivo-frontal-esquerdo'
+import IncisivoFrontalEsquerdo from './dentes-superiores/incisivo-frontal-esquerdo'
 import incisivoLateralEsquerdo from './dentes-superiores/incisivo-lateral-esquerdo'
 import caninoEsquerdo from './dentes-superiores/canino-esquerdo'
 import primeiroPreMolarEsquerdo from './dentes-superiores/primeiro-pre-molar-esquerdo'
@@ -39,8 +39,9 @@ import terceiroMolarEsquerdoInferior from './dentes-inferiores/terceiro-molar-es
 
 export default class Dentes extends Component {
 
-  render() {    
+  render() {
     const { 
+      incisoCentralSuperior,
       primeiroMolarInferior
     } = this.props.teethData
 
@@ -55,7 +56,7 @@ export default class Dentes extends Component {
           stroke-linecap="round"
           stroke-linejoin="round">
 
-          { incisivoFrontalDireito() }
+          <IncisivoFrontalDireito {...incisoCentralSuperior} />
           { incisivoLateralDireito() }
           { caninoDireito() }
           { primeiroPreMolarDireito() }
@@ -64,7 +65,7 @@ export default class Dentes extends Component {
           { segundoMolarDireito() }
           { terceiroMolarDireito() }
 
-          { incisivoFrontalEsquerdo() }
+          <IncisivoFrontalEsquerdo {...incisoCentralSuperior} />
           { incisivoLateralEsquerdo() }
           { caninoEsquerdo() }
           { primeiroPreMolarEsquerdo() }

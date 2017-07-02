@@ -2,19 +2,24 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
+  ScrollView,
   View,
+  Image,
   Button,
   TouchableWithoutFeedback
 } from 'react-native';
 
-import InfoSelector from '../widgets/InfoSelector'
-
 import { SegmentedControls } from 'react-native-radio-buttons'
 
-class Anatomy extends React.Component {
+import InfoSelector from '../widgets/InfoSelector'
+import Table from '../widgets/Table'
+
+import map from 'lodash/map'
+
+class ExternalAnatomy extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: `${navigation.state.params.pageName}`,
-    tabBarLabel: 'Anatomia',
+    tabBarLabel: `${navigation.state.params.externalAnatomy.tabName}`
   })
 
   state = {
@@ -38,30 +43,81 @@ class Anatomy extends React.Component {
     this.setState({ selectedOption: option })
   }
 
+  renderPickerOptions = (picker) => (
+    <InfoSelector params={picker} />
+  )
+
+  renderTableOptions = (table) => (
+    table && <Table params={table} />
+  )
+
+  renderImagesOptions = (images) => (
+    images && map(images, (image, i) => (
+      <Image
+        key={i}
+        style={{ width: image.width, height: image.height }}
+        source={image.source}
+      />
+    ))
+  )
+
+  renderItem = (item) => {
+    if (item.type == 'imageSource') {
+      return this.renderImagesOptions(item.imageSources)
+    }
+
+    if (item.type == 'picker') {
+      return this.renderPickerOptions(item.picker)
+    }
+
+    if (item.type == 'table') {
+      return this.renderTableOptions(item)
+    }
+  }
+
   render() {
     const { params } = this.props.navigation.state;
+    const { selectedOption } = this.state
 
     return (
-      <View>
-        <View style={styles.radioControlsWrapper}>
-          <SegmentedControls
-            options={params.anatomy.params.buttons}
-            onSelection={this.setSelectedOption}
-            selectedOption={this.state.selectedOption}
-            renderOption={this.renderOption}
-          />
+      <ScrollView>
+        <View style={{ paddingBottom: 70 }}>
+          <View style={{ height: 70 }}>
+            <ScrollView horizontal style={{ paddingBottom: 20, margin: 10 }}>
+              <SegmentedControls
+                options={params.externalAnatomy.params.buttons}
+                onSelection={this.setSelectedOption}
+                selectedOption={this.state.selectedOption}
+                renderOption={this.renderOption}
+              />
+            </ScrollView>
+          </View>
+          {
+            selectedOption && (
+              <ScrollView vertical>
+                <View style={styles.infos}>
+                  {map(selectedOption.params, (item, i) => (
+                    <View style={[styles.infos, { alignSelf: 'stretch' }]} key={i}>
+                      {this.renderItem(item)}
+                    </View>
+                  ))}
+                </View>
+              </ScrollView>
+            )
+          }
         </View>
-        {
-          this.state.selectedOption && <InfoSelector params={this.state.selectedOption.picker} />
-        }
-      </View>
+      </ScrollView>
     );
   }
 }
- 
 
 const styles = StyleSheet.create({
+  infos: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   radioText: {
+    width: 120,
     textAlign: 'center',
     color: '#007AFF',
     backgroundColor: '#ffffff'
@@ -76,4 +132,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Anatomy
+export default ExternalAnatomy
