@@ -2,45 +2,34 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  View,
   ScrollView,
+  View,
+  Image,
   Button,
-  Picker,
-  Image
+  TouchableWithoutFeedback
 } from 'react-native';
 
-import Table from '../widgets/Table'
 import { SegmentedControls } from 'react-native-radio-buttons'
 
-import get from 'lodash/get'
+import InfoSelector from '../widgets/InfoSelector'
+import Table from '../widgets/Table'
+
 import map from 'lodash/map'
 
-class PickerComponent extends React.Component {
+class Access extends React.Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: `${navigation.state.params.pageName}`,
+    tabBarLabel: `${navigation.state.params.access.tabName}`
+  })
+
   state = {
-    picker: null,
+    selectedOption: null,
   }
 
-  renderText = (text) => (
-    text && <Text> {text} </Text>
-  )
-
-  renderImage = (image) => (
-    image && (
-      <Image
-        style={{ width: 120, height: 300 }}
-        source={image}
-      />
-    )
-  )
-
-  renderTable = (table) => (
-    table && (
-      <Image
-        style={{ width: 120, height: 300 }}
-        source={image}
-      />
-    )
-  )
+  onPress = (route, params) => {
+    const { navigate } = this.props.navigation;
+    navigate(route, params)
+  }
 
   renderOption = (option, selected, onSelect, index) => {
     return (
@@ -52,12 +41,6 @@ class PickerComponent extends React.Component {
 
   setSelectedOption = (option) => {
     this.setState({ selectedOption: option })
-  }
-
-  componentDidMount() {
-    this.setState({
-      selectedOption: get(this.props.params, '[0]')
-    })
   }
 
   renderPickerOptions = (picker) => (
@@ -83,37 +66,46 @@ class PickerComponent extends React.Component {
       return this.renderImagesOptions(item.imageSources)
     }
 
+    if (item.type == 'picker') {
+      return this.renderPickerOptions(item.picker)
+    }
+
     if (item.type == 'table') {
       return this.renderTableOptions(item)
     }
   }
 
   render() {
+    const { params } = this.props.navigation.state;
     const { selectedOption } = this.state
 
     return (
       <ScrollView>
-        <ScrollView horizontal style={{paddingBottom: 20, margin: 10}}>
-          <SegmentedControls
-            options={this.props.params}
-            onSelection={this.setSelectedOption}
-            selectedOption={selectedOption}
-            renderOption={this.renderOption}
-          />
-        </ScrollView>
-        {
-           selectedOption && (
-            <ScrollView>
-              <View style={styles.infos}>
+        <View style={{ paddingBottom: 70 }}>
+          <View style={{ height: 70 }}>
+            <ScrollView horizontal style={{ paddingBottom: 20, margin: 10 }}>
+              <SegmentedControls
+                options={params.access.params.buttons}
+                onSelection={this.setSelectedOption}
+                selectedOption={this.state.selectedOption}
+                renderOption={this.renderOption}
+              />
+            </ScrollView>
+          </View>
+          {
+            selectedOption && (
+              <ScrollView vertical>
+                <View style={styles.infos}>
                   {map(selectedOption.params, (item, i) => (
                     <View style={[styles.infos, { alignSelf: 'stretch' }]} key={i}>
                       {this.renderItem(item)}
                     </View>
                   ))}
                 </View>
-            </ScrollView>
-          )         
-        }
+              </ScrollView>
+            )
+          }
+        </View>
       </ScrollView>
     );
   }
@@ -125,7 +117,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   radioText: {
-    width: 100,
+    width: 120,
     textAlign: 'center',
     color: '#007AFF',
     backgroundColor: '#ffffff'
@@ -135,6 +127,9 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     backgroundColor: '#007AFF'
   },
+  radioControlsWrapper: {
+    margin: 20
+  }
 });
 
-export default PickerComponent
+export default Access

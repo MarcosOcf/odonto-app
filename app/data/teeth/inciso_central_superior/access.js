@@ -7,8 +7,10 @@ const mesial = require('../../../assets/inciso-central-superior/mesial.png')
 const dimensoes1 = require('../../../assets/inciso-central-superior/dimensoes1_inciso_frontal.png')
 const dimensoes2 = require('../../../assets/inciso-central-superior/dimensoes2_inciso_frontal.png')
 
+const acessoInstrumento = require('../../../assets/inciso-central-superior/acesso_instrumento.png')
+
 export default {
-  tabName: 'Anatomia Externa',
+  tabName: 'Acesso',
   params: {
     buttons: [
       {
@@ -18,13 +20,13 @@ export default {
             type: 'picker',
             picker: [
               {
-                name: 'Vestibular',
+                name: 'Instrumento',
                 params: [
                   {
                     type: 'imageSource',
                     imageSources: [
                       {
-                        source: vestibular,
+                        source: acessoInstrumento,
                         width: 60,
                         height: 60
                       }
@@ -34,48 +36,15 @@ export default {
               },
               {
                 name: 'Lingual',
-                params: [
-                  {
-                    type: 'imageSource',
-                    imageSources: [
-                      {
-                        source: lingual,
-                        width: 60,
-                        height: 60
-                      }
-                    ],
-                  }
-                ]
+                imageSource: lingual
               },
               {
                 name: 'Mesial',
-                params: [
-                  {
-                    type: 'imageSource',
-                    imageSources: [
-                      {
-                        source: mesial,
-                        width: 60,
-                        height: 60
-                      }
-                    ],
-                  }
-                ]
+                imageSource: mesial
               },
               {
                 name: 'Distal',
-                params: [
-                  {
-                    type: 'imageSource',
-                    imageSources: [
-                      {
-                        source: distal,
-                        width: 60,
-                        height: 60
-                      }
-                    ],
-                  }
-                ]
+                imageSource: distal
               }
             ]
           }

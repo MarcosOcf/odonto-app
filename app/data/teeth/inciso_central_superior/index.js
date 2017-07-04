@@ -1,5 +1,6 @@
 import externalAnatomy from './external-anatomy'
 import internalAnatomy from './internal-anatomy'
+import access from './access'
 
 export default {
   name: 'IncisoCentralSuperior',
@@ -7,6 +8,7 @@ export default {
   params: {
     pageName: 'Inciso Central Superior',
     externalAnatomy,
-    internalAnatomy
+    internalAnatomy,
+    access
   }
 }
