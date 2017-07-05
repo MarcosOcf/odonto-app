@@ -16,9 +16,13 @@ const TabAnatomy = TabNavigator({
   ExternalAnatomy: { screen: ExternalAnatomy },
   InternalAnatomy: { screen: InternalAnatomy },
   Access: { screen: Access },
-  // PrepQuimMec: { screen: PrepQuimMec },
-  // MedIntraCan: { screen: MedIntraCan },
-  // Obturacao: { screen: Obturacao }
+  PrepQuimMec: { screen: PrepQuimMec },
+  MedIntraCan: { screen: MedIntraCan },
+  Obturacao: { screen: Obturacao }
+}, {
+    tabBarOptions: {
+      scrollEnabled: true,
+    }
 });
 
 const ModalStack = StackNavigator({
