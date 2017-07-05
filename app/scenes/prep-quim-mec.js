@@ -16,10 +16,10 @@ import Table from '../widgets/Table'
 
 import map from 'lodash/map'
 
-class Access extends React.Component {
+class PrepQuimMec extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: `${navigation.state.params.pageName}`,
-    tabBarLabel: `${navigation.state.params.access.tabName}`
+    tabBarLabel: `${navigation.state.params.prepQuimicoMecanico.tabName}`
   })
 
   state = {
@@ -93,7 +93,7 @@ class Access extends React.Component {
           <View style={{ height: 90 }}>
             <ScrollView horizontal style={{ paddingBottom: 20, margin: 10 }}>
               <SegmentedControls
-                options={params.access.params.buttons}
+                options={params.prepQuimicoMecanico.params.buttons}
                 onSelection={this.setSelectedOption}
                 selectedOption={this.state.selectedOption}
                 renderOption={this.renderOption}
@@ -140,4 +140,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Access
+export default PrepQuimMec
