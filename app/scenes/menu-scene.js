@@ -88,10 +88,10 @@ class Menu extends React.Component {
         style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}
         >
         <Text style={{padding: 20}}>Cohen S & Hargreaves KM.  Caminhos da Polpa. 9ª. ed., Ed. Elsevier Editora Ltda, Rio de Janeiro, 2007. 1079p.</Text>
-        <Text style={{ padding: 20 }}> De Deus QD.  Endodontia. 2ª. Ed.  Rio de Janeiro. Ed. Medsi. 1991. 545p.</Text>
-        <Text style={{ padding: 20 }}> Gomes C, Antunes L, Araújo Filho WR. Endodontia: Manual de orientação para preparo químico cirúrgico do canal radicular. Universidade Federal Fluminense. 2016.</Text>
-        <Text style={{ padding: 20 }}> Lemos EM. 2013. http://www.endo-e.com Acessado em 01/07/2017. </Text>
-        <Text style={{ padding: 20 }}> Lopes HP & Siqueira JF. Endodontia: Biologia e Técnica. 3ª. ed. Rio de Janeiro. Ed. Guanabara Koogan Ltda. 2011. 951p. </Text>
+        <Text style={{ padding: 20 }}>De Deus QD.  Endodontia. 2ª. Ed.  Rio de Janeiro. Ed. Medsi. 1991. 545p.</Text>
+        <Text style={{ padding: 20 }}>Gomes C, Antunes L, Araújo Filho WR. Endodontia: Manual de orientação para preparo químico cirúrgico do canal radicular. Universidade Federal Fluminense. 2016.</Text>
+        <Text style={{ padding: 20 }}>Lemos EM. 2013. http://www.endo-e.com Acessado em 01/07/2017. </Text>
+        <Text style={{ padding: 20 }}>Lopes HP & Siqueira JF. Endodontia: Biologia e Técnica. 3ª. ed. Rio de Janeiro. Ed. Guanabara Koogan Ltda. 2011. 951p. </Text>
       </TouchableOpacity>
     </Modal>
   )
