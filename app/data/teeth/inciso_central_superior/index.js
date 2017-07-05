@@ -2,6 +2,8 @@ import externalAnatomy from './external-anatomy'
 import internalAnatomy from './internal-anatomy'
 import access from './access'
 import prepQuimicoMecanico from './preparamento_quimico_mecanico'
+import medicacaoIntracanal from './medicacao-intracanal'
+import obturacao from './obturacao'
 
 export default {
   name: 'IncisoCentralSuperior',
@@ -11,6 +13,8 @@ export default {
     externalAnatomy,
     internalAnatomy,
     access,
-    prepQuimicoMecanico
+    prepQuimicoMecanico,
+    medicacaoIntracanal,
+    obturacao
   }
 }

@@ -16,10 +16,10 @@ import Table from '../widgets/Table'
 
 import map from 'lodash/map'
 
-class PrepQuimMec extends React.Component {
+class MedicacaoIntracanal extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: `${navigation.state.params.pageName}`,
-    tabBarLabel: `${navigation.state.params.prepQuimicoMecanico.tabName}`
+    tabBarLabel: `${navigation.state.params.medicacaoIntracanal.tabName}`
   })
 
   state = {
@@ -44,7 +44,7 @@ class PrepQuimMec extends React.Component {
   }
 
   renderPickerOptions = (picker) => (
-    <InfoSelector params={picker} />
+    picker && <InfoSelector params={picker.items} />
   )
 
   renderTableOptions = (table) => (
@@ -61,10 +61,6 @@ class PrepQuimMec extends React.Component {
     ))
   )
 
-  renderTextOptions = (text) => (
-    <Text> { text } </Text>
-  )
-
   renderItem = (item) => {
     if (item.type == 'imageSource') {
       return this.renderImagesOptions(item.imageSources)
@@ -77,10 +73,6 @@ class PrepQuimMec extends React.Component {
     if (item.type == 'table') {
       return this.renderTableOptions(item)
     }
-
-    if (item.type == 'text') {
-      return this.renderTextOptions(item.text)
-    }
   }
 
   render() {
@@ -90,10 +82,10 @@ class PrepQuimMec extends React.Component {
     return (
       <ScrollView>
         <View>
-          <View style={{ height: 70 }}>
+          <View style={{height: 70}}>
             <ScrollView horizontal style={{ paddingBottom: 20, margin: 10 }}>
               <SegmentedControls
-                options={params.prepQuimicoMecanico.params.buttons}
+                options={params.medicacaoIntracanal.params.buttons}
                 onSelection={this.setSelectedOption}
                 selectedOption={this.state.selectedOption}
                 renderOption={this.renderOption}
@@ -102,10 +94,10 @@ class PrepQuimMec extends React.Component {
           </View>
           {
             selectedOption && (
-              <ScrollView vertical>
+              <ScrollView>
                 <View style={styles.infos}>
                   {map(selectedOption.params, (item, i) => (
-                    <View style={[styles.infos, { alignSelf: 'stretch' }]} key={i}>
+                    <View style={[styles.infos, {alignSelf: 'stretch'}]} key={i}>
                       {this.renderItem(item)}
                     </View>
                   ))}
@@ -140,4 +132,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PrepQuimMec
+export default MedicacaoIntracanal

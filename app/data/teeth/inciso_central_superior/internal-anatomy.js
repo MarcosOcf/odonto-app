@@ -26,13 +26,28 @@ export default {
             columns: [
               [
                 null,
-                'Raiz',
-                'Canal',
+                {
+                  type: 'text',
+                  text: 'Raiz',
+                },
+                {
+                  type: 'text',
+                  text: 'Canal',
+                },
               ],
               [
-                'Quantidade',
-                '1',
-                '1'
+                {
+                  type: 'text',
+                  text: 'Quantidade',
+                },
+                {
+                  type: 'text',
+                  text: '1',
+                },
+                {
+                  type: 'text',
+                  text: '1',
+                },
               ]
             ]
           },
@@ -41,19 +56,52 @@ export default {
             columns: [
               [
                 null,
-                'Reta',
-                'Curvatura Apical Vestibular',
-                'Curvatura Apical distal',
-                'Curvatura Apical mesial',
-                'Curvatura Apical paratina',
+                {
+                  type: 'text',
+                  text:'Reta',
+                },
+                {
+                  type: 'text',
+                  text:'Curvatura Apical Vestibular',
+                },
+                {
+                  type: 'text',
+                  text:'Curvatura Apical distal',
+                },
+                {
+                  type: 'text',
+                  text:'Curvatura Apical mesial',
+                },
+                {
+                  type: 'text',
+                  text:'Curvatura Apical paratina',
+                },
               ],
               [
-                'Direção da raiz em %',
-                '75,0',
-                '9,3',
-                '7,8',
-                '4,3',
-                '3,6',
+                {
+                  type: 'text',
+                  text:'Direção da raiz em %',
+                },
+                {
+                  type: 'text',
+                  text:'75,0',
+                },
+                {
+                  type: 'text',
+                  text:'9,3',
+                },
+                {
+                  type: 'text',
+                  text:'7,8',
+                },
+                {
+                  type: 'text',
+                  text:'4,3',
+                },
+                {
+                  type: 'text',
+                  text:'3,6',
+                }
               ]
             ]
           }
@@ -76,16 +124,40 @@ export default {
             type: 'table',
             columns: [
               [
-                'Camara coronária',
-                'Terço apical',
-                'Terço médio',
-                'Terço cervical',
+                {
+                  type: 'text',
+                  text:'Camara coronária',
+                },
+                {
+                  type: 'text',
+                  text:'Terço apical',
+                },
+                {
+                  type: 'text',
+                  text:'Terço médio',
+                },
+                {
+                  type: 'text',
+                  text:'Terço cervical',
+                }
               ],
               [
-                'Achatada no sentido V/L',
-                'Circular',
-                'Ovalada, com o lado maior para a vestibular',
-                'Cônica triangular, com base para a vestibular' 
+                {
+                  type: 'text',
+                  text:'Achatada no sentido V/L',
+                },
+                {
+                  type: 'text',
+                  text:'Circular',
+                },
+                {
+                  type: 'text',
+                  text:'Ovalada, com o lado maior para a vestibular',
+                },
+                {
+                  type: 'text',
+                  text:'Cônica triangular, com base para a vestibular' 
+                }
               ]
             ]
           },
@@ -95,20 +167,47 @@ export default {
               [
                 null,
                 null,
-                'Vestíbulo lingual',
-                'mesiodistal',
+                {
+                  type: 'text',
+                  text:'Vestíbulo lingual',
+                },
+                {
+                  type: 'text',
+                  text:'mesiodistal',
+                }
               ],
               [
-                'Diâmetro médio do canal',
-                'Em 1mm do ápice',
-                '0,34',
-                '0,30'
+                {
+                  type: 'text',
+                  text:'Diâmetro médio do canal',
+                },
+                {
+                  type: 'text',
+                  text:'Em 1mm do ápice',
+                },
+                {
+                  type: 'text',
+                  text:'0,34',
+                },
+                {
+                  type: 'text',
+                  text:'0,30'
+                }
               ],
               [
                 null,
-                'Em 3mm do ápice',
-                '0,47',
-                '0,36'
+                {
+                  type: 'text',
+                  text:'Em 3mm do ápice',
+                },
+                {
+                  type: 'text',
+                  text:'0,47',
+                },
+                {
+                  type: 'text',
+                  text:'0,36'
+                },
               ]
             ]
           }
@@ -146,7 +245,10 @@ export default {
             type: 'table',
             columns: [
               [
-                'O forame apical distancia-se do ápice radicular entre 0,5 à 3,0mm'
+                {
+                  type: 'text',
+                  text:'O forame apical distancia-se do ápice radicular entre 0,5 à 3,0mm'
+                },
               ]
             ]
           }

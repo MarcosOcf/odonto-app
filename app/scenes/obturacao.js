@@ -16,10 +16,10 @@ import Table from '../widgets/Table'
 
 import map from 'lodash/map'
 
-class PrepQuimMec extends React.Component {
+class Obturacao extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: `${navigation.state.params.pageName}`,
-    tabBarLabel: `${navigation.state.params.prepQuimicoMecanico.tabName}`
+    tabBarLabel: `${navigation.state.params.obturacao.tabName}`
   })
 
   state = {
@@ -93,7 +93,7 @@ class PrepQuimMec extends React.Component {
           <View style={{ height: 70 }}>
             <ScrollView horizontal style={{ paddingBottom: 20, margin: 10 }}>
               <SegmentedControls
-                options={params.prepQuimicoMecanico.params.buttons}
+                options={params.obturacao.params.buttons}
                 onSelection={this.setSelectedOption}
                 selectedOption={this.state.selectedOption}
                 renderOption={this.renderOption}
@@ -140,4 +140,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PrepQuimMec
+export default Obturacao

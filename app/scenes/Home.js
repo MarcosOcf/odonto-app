@@ -7,13 +7,22 @@ import {
   Button
 } from 'react-native';
 
+import { Icon } from 'react-native-elements'
+
 import AppData from '../data/Data'
 import Dentes from '../icons/dentes'
 
 class Home extends React.Component {
-  static navigationOptions = {
-    title: 'Seleção de Dentes',
-  }
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Endo X',
+    headerLeft: (
+      <Icon
+        name='menu'
+        containerStyle={styles.headerIconContainer}
+        onPress={() => navigation.navigate('DrawerOpen')}
+      />
+    )
+  })
 
   onToothPress = (route, params) => {
     const { navigate } = this.props.navigation;
@@ -48,6 +57,10 @@ class Home extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  headerIconContainer: {
+    marginLeft: 15,
+    padding: 5
+  },
   container: {
     flex: 1,
     justifyContent: 'center',

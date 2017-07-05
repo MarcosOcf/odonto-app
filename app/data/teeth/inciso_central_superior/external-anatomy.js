@@ -89,38 +89,116 @@ export default {
             columns: [
               [
                 null,
-                'Tamanho do dente',
-                'Tamanho da coroa',
-                'Tamanho mesiodistal',
-                'Inclinação mesiodistal',
-                'Inclinação vestibulolingual'
+                {
+                  type: 'text',
+                  text: 'Tamanho do dente',
+                },
+                {
+                  type: 'text',
+                  text: 'Tamanho da coroa',
+                },
+                {
+                  type: 'text',
+                  text: 'Tamanho mesiodistal',
+                },
+                {
+                  type: 'text',
+                  text: 'Inclinação mesiodistal',
+                },
+                {
+                  type: 'text',
+                  text: 'Inclinação vestibulolingual',
+                },
               ],
               [
-                'Mínimo',
-                '20,43',
-                '9,15',
-                '10,73',
-                '7,03',
-                '-',
-                '-'
+                {
+                  type: 'text',
+                  text: 'Mínimo',
+                },
+                {
+                  type: 'text',
+                  text: '20,43',
+                },
+                {
+                  type: 'text',
+                  text: '9,15',
+                },
+                {
+                  type: 'text',
+                  text: '10,73',
+                },
+                {
+                  type: 'text',
+                  text: '7,03',
+                },
+                {
+                  type: 'text',
+                  text: '-',
+                },
+                {
+                  type: 'text',
+                  text: '-',
+                },
               ],
               [
-                'Médio',
-                '23,55',
-                '10,77',
-                '13,51',
-                '8,34',
-                '3°',
-                '17°'
+                {
+                  type: 'text',
+                  text: 'Médio',
+                },
+                {
+                  type: 'text',
+                  text: '23,55',
+                },
+                {
+                  type: 'text',
+                  text: '10,77',
+                },
+                {
+                  type: 'text',
+                  text: '13,51',
+                },
+                {
+                  type: 'text',
+                  text: '8,34',
+                },
+                {
+                  type: 'text',
+                  text: '3°',
+                },
+                {
+                  type: 'text',
+                  text: '17°'
+                },
               ],
               [
-                'Máximo',
-                '27,21',
-                '12,87',
-                '16,48',
-                '9,48',
-                '-',
-                '-'
+                {
+                  type: 'text',
+                  text: 'Máximo',
+                },
+                {
+                  type: 'text',
+                  text: '27,21',
+                },
+                {
+                  type: 'text',
+                  text: '12,87',
+                },
+                {
+                  type: 'text',
+                  text: '16,48',
+                },
+                {
+                  type: 'text',
+                  text: '9,48',
+                },
+                {
+                  type: 'text',
+                  text: '-',
+                },
+                {
+                  type: 'text',
+                  text: '-',
+                },
               ],
             ]
           },
@@ -148,16 +226,40 @@ export default {
             type: 'table',
             columns: [
               [
-                'Início da formação dos tecidos duros',
-                'Esmalte completo',
-                'Erupção',
-                'Raiz Completa'
+                {
+                  type: 'text',
+                  text: 'Início da formação dos tecidos duros',
+                },
+                {
+                  type: 'text',
+                  text: 'Esmalte completo',
+                },
+                {
+                  type: 'text',
+                  text: 'Erupção',
+                },
+                {
+                  type: 'text',
+                  text: 'Raiz Completa'
+                },
               ],
               [
-                '3-4 meses',
-                '4-5 anos',
-                '7-8 anos',
-                '10 anos'
+                {
+                  type: 'text',
+                  text: '3-4 meses',
+                },
+                {
+                  type: 'text',
+                  text: '4-5 anos',
+                },
+                {
+                  type: 'text',
+                  text: '7-8 anos',
+                },
+                {
+                  type: 'text',
+                  text: '10 anos'
+                },
               ]
             ]
           }
