@@ -15,6 +15,7 @@ import InfoSelector from '../widgets/InfoSelector'
 import Table from '../widgets/Table'
 
 import map from 'lodash/map'
+import get from 'lodash/get'
 
 class InternalAnatomy extends React.Component {
   static navigationOptions = ({ navigation }) => ({
@@ -73,6 +74,12 @@ class InternalAnatomy extends React.Component {
     if (item.type == 'table') {
       return this.renderTableOptions(item)
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      selectedOption: get(this.props.navigation.state.params.internalAnatomy.params.buttons, '[0]')
+    })
   }
 
   render() {

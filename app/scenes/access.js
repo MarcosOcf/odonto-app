@@ -15,6 +15,7 @@ import InfoSelector from '../widgets/InfoSelector'
 import Table from '../widgets/Table'
 
 import map from 'lodash/map'
+import get from 'lodash/get'
 
 class Access extends React.Component {
   static navigationOptions = ({ navigation }) => ({
@@ -81,6 +82,12 @@ class Access extends React.Component {
     if (item.type == 'text') {
       return this.renderTextOptions(item.text)
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      selectedOption: get(this.props.navigation.state.params.access.params.buttons, '[0]')
+    })
   }
 
   render() {

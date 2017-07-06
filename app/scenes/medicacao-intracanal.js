@@ -15,6 +15,7 @@ import InfoSelector from '../widgets/InfoSelector'
 import Table from '../widgets/Table'
 
 import map from 'lodash/map'
+import get from 'lodash/get'
 
 class MedicacaoIntracanal extends React.Component {
   static navigationOptions = ({ navigation }) => ({
@@ -75,6 +76,12 @@ class MedicacaoIntracanal extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.setState({
+      selectedOption: get(this.props.navigation.state.params.medicacaoIntracanal.params.buttons, '[0]')
+    })
+  }
+
   render() {
     const { params } = this.props.navigation.state;
     const { selectedOption } = this.state
@@ -82,16 +89,6 @@ class MedicacaoIntracanal extends React.Component {
     return (
       <ScrollView>
         <View>
-          <View style={{height: 70}}>
-            <ScrollView horizontal style={{ paddingBottom: 20, margin: 10 }}>
-              <SegmentedControls
-                options={params.medicacaoIntracanal.params.buttons}
-                onSelection={this.setSelectedOption}
-                selectedOption={this.state.selectedOption}
-                renderOption={this.renderOption}
-              />
-            </ScrollView>
-          </View>
           {
             selectedOption && (
               <ScrollView>
