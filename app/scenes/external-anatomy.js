@@ -9,6 +9,7 @@ import {
   TouchableWithoutFeedback
 } from 'react-native';
 
+import { Grid, Row } from 'react-native-elements'
 import { SegmentedControls } from 'react-native-radio-buttons'
 
 import InfoSelector from '../widgets/InfoSelector'
@@ -88,41 +89,38 @@ class ExternalAnatomy extends React.Component {
     const { selectedOption } = this.state
 
     return (
-      <ScrollView>
-        <View style={{ paddingBottom: 70 }}>
-          <View style={{ height: 70 }}>
-            <ScrollView horizontal style={{ paddingBottom: 20, margin: 10 }}>
-              <SegmentedControls
-                options={params.externalAnatomy.params.buttons}
-                onSelection={this.setSelectedOption}
-                selectedOption={this.state.selectedOption}
-                renderOption={this.renderOption}
-              />
-            </ScrollView>
-          </View>
+      <Grid>
+        <Row size={15}>
+          <ScrollView horizontal style={{ paddingBottom: 20, margin: 10 }}>
+            <SegmentedControls
+              options={params.externalAnatomy.params.buttons}
+              onSelection={this.setSelectedOption}
+              selectedOption={this.state.selectedOption}
+              renderOption={this.renderOption}
+            />
+          </ScrollView>
+        </Row>
+        <Row size={85}>
           {
-            selectedOption && (
-              <ScrollView vertical>
-                <View style={styles.infos}>
-                  {map(selectedOption.params, (item, i) => (
-                    <View style={[styles.infos, { alignSelf: 'stretch' }]} key={i}>
-                      {this.renderItem(item)}
-                    </View>
-                  ))}
-                </View>
-              </ScrollView>
-            )
+            <Grid style={styles.infos}>
+              {selectedOption && map(selectedOption.params, (item, i) => (
+                <Row size={item.size || 1} key={i}>
+                  {this.renderItem(item)}
+                </Row>
+              ))}
+            </Grid>
           }
-        </View>
-      </ScrollView>
+        </Row>
+      </Grid>
     );
   }
 }
 
 const styles = StyleSheet.create({
   infos: {
-    justifyContent: 'center',
-    alignItems: 'center'
+    flex: 1,
+    justifyContent: 'space-around',
+    alignItems: 'center',
   },
   radioText: {
     width: 120,
@@ -139,5 +137,6 @@ const styles = StyleSheet.create({
     margin: 20
   }
 });
+
 
 export default ExternalAnatomy

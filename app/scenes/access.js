@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 import { SegmentedControls } from 'react-native-radio-buttons'
-
+import { Grid, Row } from 'react-native-elements'
 import InfoSelector from '../widgets/InfoSelector'
 import Table from '../widgets/Table'
 
@@ -56,6 +56,7 @@ class Access extends React.Component {
     images && map(images, (image, i) => (
       <Image
         key={i}
+        resize='contain'
         style={{ width: image.width, height: image.height }}
         source={image.source}
       />
@@ -95,41 +96,38 @@ class Access extends React.Component {
     const { selectedOption } = this.state
 
     return (
-      <ScrollView>
-        <View>
-          <View style={{ height: 90 }}>
-            <ScrollView horizontal style={{ paddingBottom: 20, margin: 10 }}>
-              <SegmentedControls
-                options={params.access.params.buttons}
-                onSelection={this.setSelectedOption}
-                selectedOption={this.state.selectedOption}
-                renderOption={this.renderOption}
-              />
-            </ScrollView>
-          </View>
+      <Grid>
+        <Row size={15}>
+          <ScrollView horizontal style={{ paddingBottom: 20, margin: 10 }}>
+            <SegmentedControls
+              options={params.access.params.buttons}
+              onSelection={this.setSelectedOption}
+              selectedOption={this.state.selectedOption}
+              renderOption={this.renderOption}
+            />
+          </ScrollView>
+        </Row>
+        <Row size={85}>
           {
-            selectedOption && (
-              <ScrollView vertical>
-                <View style={styles.infos}>
-                  {map(selectedOption.params, (item, i) => (
-                    <View style={[styles.infos, { alignSelf: 'stretch' }]} key={i}>
-                      {this.renderItem(item)}
-                    </View>
-                  ))}
-                </View>
-              </ScrollView>
-            )
+            <Grid style={styles.infos}>
+              {selectedOption && map(selectedOption.params, (item, i) => (
+                <Row size={item.size || 1} key={i}>
+                  {this.renderItem(item)}
+                </Row>
+              ))}
+            </Grid>
           }
-        </View>
-      </ScrollView>
+        </Row>
+      </Grid>
     );
   }
 }
 
 const styles = StyleSheet.create({
   infos: {
-    justifyContent: 'center',
-    alignItems: 'center'
+    flex: 1,
+    justifyContent: 'space-around',
+    alignItems: 'center',
   },
   radioText: {
     width: 120,

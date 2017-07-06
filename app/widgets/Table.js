@@ -19,6 +19,7 @@ class TableComponent extends React.Component {
     images && map(images, (image, i) => (
       <Image
         key={i}
+        resize='cover'
         style={{ width: image.width, height: image.height }}
         source={image.source}
       />
