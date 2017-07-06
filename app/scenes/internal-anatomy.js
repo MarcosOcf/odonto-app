@@ -6,13 +6,16 @@ import {
   View,
   Image,
   Button,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  Dimensions
 } from 'react-native';
 
 import { SegmentedControls } from 'react-native-radio-buttons'
 
 import InfoSelector from '../widgets/InfoSelector'
 import Table from '../widgets/Table'
+
+import { Grid, Row } from 'react-native-elements'
 
 import map from 'lodash/map'
 import get from 'lodash/get'
@@ -56,6 +59,7 @@ class InternalAnatomy extends React.Component {
     images && map(images, (image, i) => (
       <Image
         key={i}
+        resizeMode='contain'
         style={{ width: image.width, height: image.height }}
         source={image.source}
       />
@@ -87,41 +91,38 @@ class InternalAnatomy extends React.Component {
     const { selectedOption } = this.state
 
     return (
-      <ScrollView style={{paddingBottom: 50}}>
-        <View style={{ paddingBottom: 70 }}>
-          <View style={{height: 70}}>
-            <ScrollView horizontal style={{ paddingBottom: 20, margin: 10 }}>
-              <SegmentedControls
-                options={params.internalAnatomy.params.buttons}
-                onSelection={this.setSelectedOption}
-                selectedOption={this.state.selectedOption}
-                renderOption={this.renderOption}
-              />
-            </ScrollView>
-          </View>
+      <Grid>
+        <Row size={15}>
+          <ScrollView horizontal style={{ paddingBottom: 20, margin: 10 }}>
+            <SegmentedControls
+              options={params.internalAnatomy.params.buttons}
+              onSelection={this.setSelectedOption}
+              selectedOption={this.state.selectedOption}
+              renderOption={this.renderOption}
+            />
+          </ScrollView>
+        </Row>
+        <Row size={85}>
           {
-            selectedOption && (
-              <ScrollView>
-                <View style={styles.infos}>
-                  {map(selectedOption.params, (item, i) => (
-                    <View style={[styles.infos, {alignSelf: 'stretch'}]} key={i}>
-                      {this.renderItem(item)}
-                    </View>
-                  ))}
-                </View>
-              </ScrollView>
-            )
+            <Grid style={styles.infos}>
+              {selectedOption && map(selectedOption.params, (item, i) => (
+                <Row size={item.size || 1} key={i}>
+                  {this.renderItem(item)}
+                </Row>
+              ))}
+            </Grid>   
           }
-        </View>
-      </ScrollView>
+        </Row>
+      </Grid>
     );
   }
 }
 
 const styles = StyleSheet.create({
   infos: {
-    justifyContent: 'center',
-    alignItems: 'center'
+    flex: 1,
+    justifyContent: 'space-around',
+    alignItems: 'center',
   },
   radioText: {
     width: 120,

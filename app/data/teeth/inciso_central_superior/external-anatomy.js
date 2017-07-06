@@ -25,8 +25,8 @@ export default {
                     imageSources: [
                       {
                         source: vestibular,
-                        width: 60,
-                        height: 60
+                        width: 200,
+                        height: 200
                       }
                     ],
                   }
@@ -40,8 +40,8 @@ export default {
                     imageSources: [
                       {
                         source: lingual,
-                        width: 60,
-                        height: 60
+                        width: 200,
+                        height: 200
                       }
                     ],
                   }
@@ -55,8 +55,8 @@ export default {
                     imageSources: [
                       {
                         source: mesial,
-                        width: 60,
-                        height: 60
+                        width: 200,
+                        height: 200
                       }
                     ],
                   }
@@ -70,8 +70,8 @@ export default {
                     imageSources: [
                       {
                         source: distal,
-                        width: 60,
-                        height: 60
+                        width: 200,
+                        height: 200
                       }
                     ],
                   }
@@ -203,20 +203,35 @@ export default {
             ]
           },
           {
-            type: 'imageSource',
-            imageSources: [
-              {
-                source: dimensoes1,
-                  width: 60,
-                  height: 60
-              },
-              {
-                source: dimensoes2,
-                width: 60,
-                height: 60
-              }
-            ],
-          },
+            type: 'table',
+            columns: [
+              [
+                {
+                  type: 'imageSource',
+                  imageSources: [
+                    {
+                      source: dimensoes1,
+                      width: 200,
+                      height: 200,
+                    },
+                  ],
+                },
+              ],
+              [
+                {
+                  type: 'imageSource',
+                  imageSources: [
+                    {
+                      source: dimensoes2,
+                      width: 200,
+                      height: 200,
+                    }
+                  ],
+                },
+              ]
+            ]
+          }
+          
         ],
       },
       {

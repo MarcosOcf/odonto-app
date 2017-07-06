@@ -57,6 +57,7 @@ class ExternalAnatomy extends React.Component {
       <Image
         key={i}
         style={{ width: image.width, height: image.height }}
+        resizeMode='contain'
         source={image.source}
       />
     ))

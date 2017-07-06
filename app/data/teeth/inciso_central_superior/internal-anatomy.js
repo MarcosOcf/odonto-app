@@ -12,6 +12,7 @@ export default {
         name: 'Canal Radicular',
         params: [
           {
+            size: 40,
             type: 'imageSource',
             imageSources: [
               {
@@ -23,6 +24,7 @@ export default {
           },
           {
             type: 'table',
+            size: 20,
             columns: [
               [
                 null,
@@ -53,6 +55,7 @@ export default {
           },
           {
             type: 'table',
+            size: 40,
             columns: [
               [
                 null,
@@ -112,16 +115,18 @@ export default {
         params: [
           {
             type: 'imageSource',
+            size: 35,
             imageSources: [
               {
                 source: topografia,
-                width: 350,
-                height: 180
+                width: 300,
+                height: 150
               }
             ]
           },
           {
             type: 'table',
+            size: 30,
             columns: [
               [
                 {
@@ -163,6 +168,7 @@ export default {
           },
           {
             type: 'table',
+            size: 35,
             columns: [
               [
                 null,
@@ -221,8 +227,7 @@ export default {
             imageSources: [
               {
                 source: ramificacoes,
-                width: 320,
-                height: 400
+                width: 320
               }
             ]
           }
@@ -236,8 +241,7 @@ export default {
             imageSources: [
               {
                 source: forame,
-                width: 320,
-                height: 400
+                width: 320
               }
             ]
           },

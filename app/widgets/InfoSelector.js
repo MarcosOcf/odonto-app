@@ -24,24 +24,6 @@ class PickerComponent extends React.Component {
     text && <Text> {text} </Text>
   )
 
-  renderImage = (image) => (
-    image && (
-      <Image
-        style={{ width: 120, height: 300 }}
-        source={image}
-      />
-    )
-  )
-
-  renderTable = (table) => (
-    table && (
-      <Image
-        style={{ width: 120, height: 300 }}
-        source={image}
-      />
-    )
-  )
-
   renderOption = (option, selected, onSelect, index) => {
     return (
       <Text style={[styles.radioText, selected && styles.radioTextSelected]} onPress={onSelect} >
@@ -65,14 +47,17 @@ class PickerComponent extends React.Component {
   )
 
   renderTableOptions = (table) => (
-    table && <Table params={table} />
+    table && (
+      <Table params={table} />
+    )
   )
 
   renderImagesOptions = (images) => (
     images && map(images, (image, i) => (
       <Image
         key={i}
-        style={{ width: image.width, height: image.height }}
+        resizeMode='contain'
+        style={{  height: image.height }}
         source={image.source}
       />
     ))
@@ -85,6 +70,10 @@ class PickerComponent extends React.Component {
 
     if (item.type == 'table') {
       return this.renderTableOptions(item)
+    }
+
+    if (item.type == 'text') {
+      return this.renderText(item.text)
     }
   }
 
@@ -105,12 +94,12 @@ class PickerComponent extends React.Component {
            selectedOption && (
             <ScrollView>
               <View style={styles.infos}>
-                  {map(selectedOption.params, (item, i) => (
-                    <View style={[styles.infos, { alignSelf: 'stretch' }]} key={i}>
-                      {this.renderItem(item)}
-                    </View>
-                  ))}
-                </View>
+                {map(selectedOption.params, (item, i) => (
+                  <View style={[styles.item]} key={i}>
+                    {this.renderItem(item)}
+                  </View>
+                ))}
+              </View>
             </ScrollView>
           )         
         }
@@ -120,8 +109,17 @@ class PickerComponent extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  infos: {
+  item: {
+    marginTop: 20,
+    marginBottom: 20,
     justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'stretch'
+  },
+  infos: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
     alignItems: 'center'
   },
   radioText: {
