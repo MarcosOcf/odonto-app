@@ -22,6 +22,11 @@ const TabAnatomy = TabNavigator({
 }, {
     tabBarOptions: {
       scrollEnabled: true,
+      lazy: true,
+      tabStyle: {
+        height: 50,
+        width: 200
+      },
     }
 });
 

@@ -56,7 +56,7 @@ class Access extends React.Component {
     images && map(images, (image, i) => (
       <Image
         key={i}
-        resize='contain'
+        resize='cover'
         style={{ width: image.width, height: image.height }}
         source={image.source}
       />
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   radioText: {
-    width: 120,
+    width: 160,
     textAlign: 'center',
     color: '#007AFF',
     backgroundColor: '#ffffff'

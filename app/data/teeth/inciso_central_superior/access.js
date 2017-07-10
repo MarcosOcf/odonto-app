@@ -123,7 +123,7 @@ export default {
             text: 'Desgaste compensatório  que proporcionará expulsividade às paredes.'
           },
           {
-            size: 6,
+            size: 4,
             type: 'imageSource',
             imageSources: [
               {
@@ -134,12 +134,12 @@ export default {
             ],
           },
           {
-            size: 7,
+            size: 4,
             type: 'imageSource',
             imageSources: [
               {
                 source: formaDeConveniencia2,
-                width: 300,
+                width: 400,
                 height: 200
               }
             ],

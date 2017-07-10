@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Svg, { G } from 'react-native-svg';
+import Svg, { G, Path } from 'react-native-svg';
 
 import IncisivoFrontalDireito from './dentes-superiores/incisivo-frontal-direito'
 import incisivoLateralDireito from './dentes-superiores/incisivo-lateral-direito'
@@ -56,6 +56,13 @@ export default class Dentes extends Component {
           stroke-linecap="round"
           stroke-linejoin="round">
 
+          <G fill='#993333' fillOpacity="0.15" stroke="#979797">
+            <Path d="M604.892446,2479.48476 C604.892446,2479.48476 866.064654,4120.86496 1500.23812,4120.86496 C2134.41159,4120.86496 2395.5838,2479.48476 2395.5838,2479.48476" stroke-width="13"></Path>
+            <Path d="M1507.55439,2514.6211 L1507.94306,3302.74013" stroke-width="2"></Path>
+            <Path d="M111.967297,2453.21841 C111.967297,2453.21841 12.5755868,2207.33818 28.6895781,2092.96681 C109.422448,1519.95366 247.198502,0.740247665 1511.55775,0.740247665 C2772.83439,0.740247665 2896.48578,1571.97329 2971.47234,2092.96681 C2988.06217,2208.2301 2896.26243,2445.50251 2896.26243,2445.50251" stroke-width="8"></Path>
+            <Path d="M109.378379,2436.9871 C109.378379,2436.9871 195.132591,4630.61288 1509.78,4630.61288 C2824.4274,4630.61288 2897.18198,2436.9871 2897.18198,2436.9871" stroke-width="7"></Path>
+          </G>
+          
           <IncisivoFrontalDireito {...incisoCentralSuperior} />
           { incisivoLateralDireito() }
           { caninoDireito() }
