@@ -13,10 +13,10 @@ import Obturacao from './scenes/obturacao'
 import MenuScene from './scenes/menu-scene'
 
 const TabAnatomy = TabNavigator({
+  PrepQuimMec: { screen: PrepQuimMec },
   ExternalAnatomy: { screen: ExternalAnatomy },
   InternalAnatomy: { screen: InternalAnatomy },
   Access: { screen: Access },
-  PrepQuimMec: { screen: PrepQuimMec },
   MedIntraCan: { screen: MedIntraCan },
   Obturacao: { screen: Obturacao }
 }, {

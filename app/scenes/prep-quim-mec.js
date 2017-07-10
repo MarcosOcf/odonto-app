@@ -13,6 +13,7 @@ import { SegmentedControls } from 'react-native-radio-buttons'
 
 import InfoSelector from '../widgets/InfoSelector'
 import Table from '../widgets/Table'
+import { Grid, Row } from 'react-native-elements'
 
 import map from 'lodash/map'
 import get from 'lodash/get'
@@ -93,25 +94,32 @@ class PrepQuimMec extends React.Component {
   render() {
     const { params } = this.props.navigation.state;
     const { selectedOption } = this.state
-
     return (
-      <ScrollView>
-        <View>
+      <Grid>
+        <Row size={15}>
+          <ScrollView horizontal style={{ paddingBottom: 20, margin: 10 }}>
+            <SegmentedControls
+              options={params.prepQuimicoMecanico.params.buttons}
+              onSelection={this.setSelectedOption}
+              selectedOption={this.state.selectedOption}
+              renderOption={this.renderOption}
+            />
+          </ScrollView>
+        </Row>
+        <Row size={85}>
           {
-            selectedOption && (
-              <ScrollView vertical>
-                <View style={styles.infos}>
-                  {map(selectedOption.params, (item, i) => (
-                    <View style={[styles.infos, { alignSelf: 'stretch' }]} key={i}>
-                      {this.renderItem(item)}
-                    </View>
-                  ))}
-                </View>
-              </ScrollView>
-            )
+            <ScrollView style={{paddingBottom: 50}}>
+              <Grid style={styles.infos}>
+                {selectedOption && map(selectedOption.params, (item, i) => (
+                  <Row size={item.size || 1} key={i} style={item.style || {}} >
+                    {this.renderItem(item)}
+                  </Row>
+                ))}
+              </Grid>
+            </ScrollView>
           }
-        </View>
-      </ScrollView>
+        </Row>
+      </Grid>
     );
   }
 }
